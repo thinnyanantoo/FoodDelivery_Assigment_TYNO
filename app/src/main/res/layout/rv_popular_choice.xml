@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginEnd="@dimen/margin_medium_3">
+    <ImageView
+        android:id="@+id/ivImageDetailItem"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/burger"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tvNameDetailItem"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:fontFamily="@font/cambay"
+        android:text="American Beef \nburgers" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvPriceDetailIem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18"
+        android:fontFamily="@font/cambay"
+        android:textColor="@android:color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:layout_toRightOf="@id/tvPriceDetailIem"
+            android:fontFamily="@font/cambay"
+            android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

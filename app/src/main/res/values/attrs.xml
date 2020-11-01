@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="cornerX" format="dimension" />
+        <attr name="cornerY" format="dimension" />
+        <attr name="fillColor" format="color"/>
+    </declare-styleable>
+</resources>

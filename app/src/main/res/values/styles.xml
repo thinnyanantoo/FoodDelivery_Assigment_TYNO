@@ -1,0 +1,62 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.TranslucentStatusBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+    </style>
+    <style name="AppTheme.PopupOVerlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="Color_Profile">
+        <item name="android:textColor">@color/color_profile_text_color</item>
+        <item name="backgroundTint">@color/color_profile_tint_color</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="TextInput_MARGIN">
+        <item name="android:layout_marginEnd">@dimen/margin_xxlarge</item>
+        <item name="android:layout_marginStart">@dimen/margin_xxlarge</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium_3</item>
+        <item name="android:textSize">@dimen/text_smaller</item>
+        <item name="android:textColor">@color/color_profile_tint_color</item>
+        <item name="boxStrokeColor">@color/color_profile_tint_color</item>
+        <item name="hintTextColor">@color/color_profile_tint_color</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialComponents.TextInputLayout.FilledBox.round" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">100dp</item>
+        <item name="cornerSizeTopRight">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.Button.round" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">40dp</item>
+        <item name="cornerSizeBottomRight">40dp</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+        <item name="cornerSizeTopLeft">40dp</item>
+    </style>
+
+</resources>

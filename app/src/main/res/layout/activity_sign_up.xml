@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.LoginActivity"
+    android:orientation="vertical"
+    android:background="@color/bg_log_in">
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_xxlarge"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create your \naccount"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:textSize="@dimen/text_regular_3x"/>
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="UserName"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_corner_edittext"/>
+    <EditText
+        android:id="@+id/etEmailUP"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="Email"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_corner_edittext" />
+    <EditText
+        android:id="@+id/etPasswordUP"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="Password"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_corner_edittext" />
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="Phone"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_corner_edittext" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.round"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Clicking Sign up you agree to the our \n                terms and conditions"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tvOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already an account?\t" />
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log in"
+            android:layout_toRightOf="@+id/tvOne"
+            android:textColor="@color/text_color"
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
