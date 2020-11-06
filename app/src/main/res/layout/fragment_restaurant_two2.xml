@@ -14,25 +14,37 @@
         android:weightSum="5"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_below="@+id/textViewTwo">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tvSearchFood"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
-            android:hint="Search foods"
-            android:layout_weight="3"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/tvSearchFood"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="70dp"-->
+<!--            android:hint="Search foods"-->
+<!--            android:layout_weight="3"-->
+<!--            android:focusable="false"-->
+<!--            app:startIconDrawable="@drawable/ic_baseline_search_24"-->
+<!--            app:hintTextColor="@color/color_profile_tint_color"-->
+<!--            app:boxStrokeColor="@color/color_profile_tint_color"-->
+<!--            android:padding="14dp"-->
+<!--            >-->
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:focusable="false"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/rounded_textfield"-->
+<!--                />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Search"
             android:focusable="false"
-            app:startIconDrawable="@drawable/ic_baseline_search_24"
-            app:hintTextColor="@color/color_profile_tint_color"
-            app:boxStrokeColor="@color/color_profile_tint_color"
-            android:padding="14dp"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:focusable="false"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_textfield"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/margin_xlarge"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:background="@drawable/rounded_corner_edittext" />
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

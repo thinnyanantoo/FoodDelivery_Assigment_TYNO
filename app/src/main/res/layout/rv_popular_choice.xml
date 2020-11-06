@@ -29,12 +29,24 @@
         android:fontFamily="@font/cambay"
         android:textColor="@android:color/black"/>
         <TextView
+            android:id="@+id/ivDollar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$"
             android:layout_toRightOf="@id/tvPriceDetailIem"
             android:fontFamily="@font/cambay"
             android:textColor="@android:color/black"/>
+        <ImageView
+            android:id="@+id/ivCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:layout_toRightOf="@id/ivDollar"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="8dp"
+            android:focusable="true"
+            android:clickable="true"/>
+
     </RelativeLayout>
 
 

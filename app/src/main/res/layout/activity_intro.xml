@@ -1,61 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_gravity="center">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/intro"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="230dp"/>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="20dp"
-        android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="@color/text_color">
+    tools:context=".activities.IntroActivity">
 
-        <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textSize="@dimen/text_regular_3x"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:text="Log in"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/introViewPager"
             android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Happy Meals"
-                android:textStyle="bold"
-                android:fontFamily="@font/cambay"
-                android:textSize="24sp"
-                android:textColor="@android:color/white"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Discover the best foods from over 1000 restaurants"
-                android:textStyle="bold"
-                android:fontFamily="@font/cambay"
-                android:textSize="18sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@android:color/white"/>
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_get_started"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tabLayout"
+            android:layout_below="@id/tvLogin"
+            android:layout_marginBottom="@dimen/margin_medium_2" />
 
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@android:color/white"
-                android:background="@drawable/rounded_corner_btn_white"
-                android:textStyle="bold"
-                android:text="Get Started"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_above="@id/btnCreateAccount"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
 
-</RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateAccount"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Create Account"
+            android:textAllCaps="false"
+            android:gravity="bottom"
+            android:layout_marginStart="@dimen/margin_xlarge"
+            android:layout_marginEnd="@dimen/margin_xlarge"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.round"/>
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnfaceboo"-->
+<!--            style="@style/Widget.MaterialComponents.Button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Create Account"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginStart="@dimen/margin_xlarge"-->
+<!--            android:layout_marginEnd="@dimen/margin_xlarge"-->
+<!--            android:layout_marginTop="@dimen/margin_xlarge"-->
+<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.round"/>-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnCreateAccount"-->
+<!--            style="@style/Widget.MaterialComponents.Button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Create Account"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:gravity="center"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginStart="@dimen/margin_xlarge"-->
+<!--            android:layout_marginEnd="@dimen/margin_xlarge"-->
+<!--            android:layout_marginTop="@dimen/margin_xlarge"-->
+<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.round"/>-->
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

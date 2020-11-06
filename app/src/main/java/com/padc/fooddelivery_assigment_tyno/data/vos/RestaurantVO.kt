@@ -17,7 +17,7 @@ data class RestaurantVO(
     @SerializedName("address") var address: String? = " ",
     @SerializedName("delivery_type")var deliveryType : String? = " ",
     @SerializedName("food_type")var foodType : String? = "",
-    @SerializedName("foods")var foods : FoodVO = FoodVO(),
+    @SerializedName("foods")var foods : ArrayList<FoodVO> = arrayListOf(),
 
     @PrimaryKey
     @SerializedName("id") var id : String = "",
@@ -28,3 +28,4 @@ data class RestaurantVO(
     @SerializedName("phnone_number")var phoneNumber : String? = "",
     @SerializedName("rating")var rating : Float= 0f
 )
+

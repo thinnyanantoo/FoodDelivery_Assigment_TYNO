@@ -7,13 +7,13 @@ import com.padc.fooddelivery_assigment_tyno.data.vos.FoodVO
 
 class FoodTypeConverter {
     @TypeConverter
-    fun toString(dataList : FoodVO) : String{
+    fun toString(dataList : ArrayList<FoodVO>) : String{
         return Gson().toJson(dataList)
     }
 
     @TypeConverter
-    fun toList(ListJsonStr : String): FoodVO {
-        val dataListType = object : TypeToken<FoodVO>(){}.type
+    fun toList(ListJsonStr : String): ArrayList<FoodVO>{
+        val dataListType = object : TypeToken<ArrayList<FoodVO>>(){}.type
         return Gson().fromJson(ListJsonStr,dataListType)
     }
 }

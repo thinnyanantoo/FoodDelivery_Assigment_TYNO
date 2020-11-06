@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -16,8 +15,8 @@ import com.padc.fooddelivery_assigment_tyno.data.vos.RestaurantVO
 import com.padc.fooddelivery_assigment_tyno.mvp.impl.DetailPresenterImpl
 import com.padc.fooddelivery_assigment_tyno.mvp.presenters.DetailPresenter
 import com.padc.fooddelivery_assigment_tyno.mvp.views.DetailView
+import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.rv_popular_choice.*
 
 class DetailActivity : BaseActivity(), DetailView {
 
@@ -33,16 +32,18 @@ class DetailActivity : BaseActivity(), DetailView {
     private lateinit var mAdapter: PopularChoiceAdapter
     private lateinit var mBurgerAdapter: BurgersInPopularChoiceAdapter
     private lateinit var mPresenter: DetailPresenter
+    var itemCount =0
+    private var id = ""
     private var detailData : RestaurantVO = RestaurantVO()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         setUpPresenter()
         setUpRecycler()
-
-        mPresenter.onUiReady(intent.getStringExtra(RESTAURANT_KEY).toString(), this)
-        tvImageNameInDetail.setOnClickListener {
-            startActivity(CheckOutActivity.newIntent(this,detailData.id))
+        id = intent.getStringExtra(RESTAURANT_KEY).toString()
+        mPresenter.onUiReady(id, this)
+        btnCart.setOnClickListener {
+            startActivity(CartActivity.newIntent(this,detailData.id))
         }
     }
 
@@ -63,10 +64,6 @@ class DetailActivity : BaseActivity(), DetailView {
         rvBurgersInPopular.adapter = mBurgerAdapter
     }
 
-    override fun showFoodList(FoodList: List<FoodVO>) {
-        mAdapter.setNewData(FoodList)
-        mBurgerAdapter.setNewData(FoodList)
-    }
 
     override fun bindData(restaurantVO: RestaurantVO) {
         detailData = restaurantVO
@@ -78,10 +75,25 @@ class DetailActivity : BaseActivity(), DetailView {
         tvImageNameInDetail.text = restaurantVO.name
         tvImageRateInDetail.text = restaurantVO.rating.toString()
         tvAddressInDetail.text = restaurantVO.address
+
     }
 
-    override fun addOrderFood(): RestaurantVO {
-        Toast.makeText(this,"food Added",Toast.LENGTH_SHORT).show()
-        return detailData
+    override fun displayPopularFoods(foods: List<FoodVO>) {
+        mBurgerAdapter.setNewData(foods)
     }
+
+    override fun showFoodList(foods: List<FoodVO>) {
+        mAdapter.setNewData(foods)
+    }
+
+    override fun addItemCount() {
+        itemCount++
+        btnCart.visibility = View.VISIBLE
+        btnCart.text = "${itemCount} items in cart"
+    }
+
+    override fun navigateGoToCart() {
+        startActivity(CartActivity.newIntent(this,id = id))
+    }
+
 }

@@ -13,21 +13,20 @@ import com.padc.fooddelivery_assigment_tyno.mvp.views.DetailView
 
 class DetailPresenterImpl : DetailPresenter, AbstractBasePresenter<DetailView>() {
 
-        private var mModel: FoodModel = FoodModelImpl
-        override fun onUiReady(id: String, owner: LifecycleOwner) {
-            bindRestaurantItem(id, lifecycleOwner = owner)
-            requestFoodList(id,owner)
-        }
-
-    override fun onTapAddFood(name: String, price: Int, counter: Int) {
-        mView?.addOrderFood()?.let {
-            mModel.addOrderFoodList(it.id.toInt(),name,price,counter)
-        }
+    private var mModel: FoodModel = FoodModelImpl
+    override fun onUiReady(id: String, owner: LifecycleOwner) {
+        bindRestaurantItem(id, lifecycleOwner = owner)
+        requestFoodList(id, owner)
+        requestPopularFood(id, owner)
     }
 
+    override fun onTapAddCart(foods: FoodVO) {
+        mModel.addToCart(foods.id, foods.name, foods.prize.toInt(), 1)
+        mView?.addItemCount()
+    }
 
     fun bindRestaurantItem(id: String, lifecycleOwner: LifecycleOwner) {
-        mModel.getRestaurantLisfromRestaurantId(id)
+        mModel.getRestaurantById(id)
             .observe(lifecycleOwner, Observer {
                 it?.let { data ->
                     mView.bindData(data)
@@ -43,4 +42,15 @@ class DetailPresenterImpl : DetailPresenter, AbstractBasePresenter<DetailView>()
         })
     }
 
+    fun requestPopularFood(id: String, lifecycleOwner: LifecycleOwner) {
+        mModel.getPopular(id, onSuccess = {
+            mView?.displayPopularFoods(it)
+        }, onFaiure = {
+
+        })
+    }
+
+    override fun onTapgoToCart() {
+        mView?.navigateGoToCart()
+    }
 }

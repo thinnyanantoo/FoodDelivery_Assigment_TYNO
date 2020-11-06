@@ -1,21 +1,50 @@
 {
   "project_info": {
-    "project_number": "647772932574",
-    "firebase_url": "https://fooddeliveryassigmenttyno.firebaseio.com",
-    "project_id": "fooddeliveryassigmenttyno",
-    "storage_bucket": "fooddeliveryassigmenttyno.appspot.com"
+    "project_number": "344061031256",
+    "firebase_url": "https://food-delivery-app-5bb3d.firebaseio.com",
+    "project_id": "food-delivery-app-5bb3d",
+    "storage_bucket": "food-delivery-app-5bb3d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:647772932574:android:216eb8e9e88e7b4acbb54f",
+        "mobilesdk_app_id": "1:344061031256:android:24ef79a8a7985e94eaab2d",
+        "android_client_info": {
+          "package_name": "com.padc.fooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344061031256-qgcv0m44ts8fq4ct3tb7vcdhloq36jo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArT_zfQt9Rt695qSXQyFRNfqDanvJLQ4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344061031256-qgcv0m44ts8fq4ct3tb7vcdhloq36jo6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344061031256:android:4dc7f125ac233ebfeaab2d",
         "android_client_info": {
           "package_name": "com.padc.fooddelivery_assigment_tyno"
         }
       },
       "oauth_client": [
         {
-          "client_id": "647772932574-htkbnc08h0ihbf2cibni03iosopqg773.apps.googleusercontent.com",
+          "client_id": "344061031256-98962ierft2i4q67ant81grgedl8fqbr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.padc.fooddelivery_assigment_tyno",
@@ -23,20 +52,20 @@
           }
         },
         {
-          "client_id": "647772932574-6juid2qa1petfihn1200alirpbhukbr2.apps.googleusercontent.com",
+          "client_id": "344061031256-qgcv0m44ts8fq4ct3tb7vcdhloq36jo6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC1Yi9mW4M2nDV7S_5-OWBjhqkzhiH6QI4"
+          "current_key": "AIzaSyArT_zfQt9Rt695qSXQyFRNfqDanvJLQ4w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "647772932574-6juid2qa1petfihn1200alirpbhukbr2.apps.googleusercontent.com",
+              "client_id": "344061031256-qgcv0m44ts8fq4ct3tb7vcdhloq36jo6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

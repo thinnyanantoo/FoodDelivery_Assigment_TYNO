@@ -9,14 +9,12 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.padc.fooddelivery_assigment_tyno.adapters.RestaurantAdapter
-import com.padc.fooddelivery_assigment_tyno.data.vos.CategoryVO
-import com.padc.fooddelivery_assigment_tyno.data.vos.FoodVO
-import com.padc.fooddelivery_assigment_tyno.data.vos.OrderListVO
-import com.padc.fooddelivery_assigment_tyno.data.vos.RestaurantVO
+import com.padc.fooddelivery_assigment_tyno.data.vos.*
 import com.padc.fooddelivery_assigment_tyno.network.FirebaseApi
 import io.reactivex.internal.util.NotificationLite.getValue
 import java.io.ByteArrayOutputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
 
@@ -24,25 +22,21 @@ object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
     private val storageReference = storage.reference
     private val database: DatabaseReference = Firebase.database.reference
     override fun getRestaurants(
-        id: String,
         onSuccess: (restaurants: List<RestaurantVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        database.child("restaurants").child(id).addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                onFailure(error.message)
-            }
-
+        database.child("restaurants").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                val restaurantList = arrayListOf<RestaurantVO>()
-                snapshot.children.forEach { dataSnapShot ->
-                    dataSnapShot.getValue(
-                        RestaurantVO::class.java
-                    )?.let {
-                        restaurantList.add(it)
+                val restaurantTypeList = arrayListOf<RestaurantVO>()
+                snapshot.children.forEach { dataSnapshot ->
+                    dataSnapshot.getValue(RestaurantVO::class.java)?.let {
+                   restaurantTypeList.add(it)
                     }
                 }
-                onSuccess(restaurantList)
+                onSuccess(restaurantTypeList)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                onFailure(error.message)
             }
         })
     }
@@ -70,19 +64,29 @@ object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
         })
     }
 
-    override fun getPopularFood(onSuccess: (foodList: List<FoodVO>) -> Unit,onFailure: (String) -> Unit) {
-        database.child("foods/id/popularity").equalTo("true").addValueEventListener(object : ValueEventListener {
+    override fun getPopularFood(id: String,onSuccess: (foodList: List<FoodVO>) -> Unit,onFailure: (String) -> Unit) {
+        database.child("restaurants/${id}/foods").orderByChild("popularity").equalTo("true").addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 onFailure(error.message)
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                var restaurant: RestaurantVO = RestaurantVO()
                 val foodList = arrayListOf<FoodVO>()
-                snapshot.children.forEach { dataSnapShot ->
-                    dataSnapShot.getValue(
-                        FoodVO::class.java
-                    )?.let {
-                        foodList.add(it)
+                for (dataSnapShot: DataSnapshot in snapshot.children) {
+                    dataSnapShot.let {
+                        var foodVO = FoodVO()
+                        foodVO.id = dataSnapShot.child("id").getValue(String::class.java).toString()
+                        foodVO.name =
+                            dataSnapShot.child("fname").getValue(String::class.java).toString()
+                        foodVO.image =
+                            dataSnapShot.child("fimage").getValue(String::class.java).toString()
+                        foodVO.prize =
+                            dataSnapShot.child("fprize").getValue(String::class.java).toString()
+                        foodVO.ingredients =
+                            dataSnapShot.child("ingredients").getValue(String::class.java)
+                                .toString()
+                        foodList.add(foodVO)
                     }
                 }
                 onSuccess(foodList)
@@ -154,36 +158,28 @@ object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
         onFailure
     }
 
-    override fun addOrderedFoodIntoNetwork(id: Int, name: String, price: Int, qty: Int) {
-        database.child("orderList").child(id.toString()).child(name).setValue(OrderListVO(name,price,qty))
-
+    override fun addToCart(foodId: String, name: String, price: Int, qty: Int) {
+            database.child("cart").child(foodId).setValue(CartVO(foodId,name,price,qty))
     }
 
-    override fun deleteOrderedFoodList(id: Int) {
-        database.child("orderList").child(id.toString()).removeValue()
-
+    override fun getCartItem(onSuccess: (List<CartVO>) -> Unit, onFailure: (String) -> Unit) {
+         database.child("cart").addValueEventListener(object : ValueEventListener {
+             override fun onCancelled(error: DatabaseError) {
+                 onFailure
+             }
+             var cartItemList : ArrayList<CartVO> = arrayListOf()
+             override fun onDataChange(snapshot: DataSnapshot) {
+                 snapshot.children.forEach { dataSnapShot ->
+                     dataSnapShot.getValue(CartVO::class.java)?.let {
+                         cartItemList.add(it)
+                     }
+                 }
+                 onSuccess(cartItemList)
+             }
+         })
     }
 
-    override fun getAllOrderedFoodDataById(
-        onSuccess: (data: List<OrderListVO>) -> Unit,
-        onFailure: (String) -> Unit,
-        id: String
-    ) {
-        database.child("orderList").child(id.toString()).addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-               onFailure
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val orderFoodList = arrayListOf<OrderListVO>()
-            snapshot.children.forEach {
-                dataSnapShot ->
-                dataSnapShot.getValue(OrderListVO::class.java)?.let {
-                    orderFoodList.add(it)
-                }
-            }
-              onSuccess(orderFoodList)
-            }
-        })
+    override fun clearCart() {
+        database.child("cart").removeValue()
     }
 }

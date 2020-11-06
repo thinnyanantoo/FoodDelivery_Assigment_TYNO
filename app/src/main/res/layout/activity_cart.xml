@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
  >
-
     <RelativeLayout
         style="@style/Widget.AppCompat.Toolbar"
         android:layout_width="match_parent"
@@ -26,6 +28,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="My Order"
+            android:fontFamily="@font/cambay"
             android:textColor="@android:color/black"
             android:textSize="18dp" />
 
@@ -42,10 +45,13 @@
         android:layout_height="wrap_content"
         android:background="@color/color_profile_tint_color"
         tools:itemCount="5"
-        tools:listitem="@layout/rv_check_out" />
+        tools:listitem="@layout/rv_cart" />
 
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/tvAddMoreFoods"
+        android:focusable="true"
+        android:clickable="true"
         android:layout_height="wrap_content"
         android:background="@color/color_profile_tint_color"
         android:paddingStart="20dp"
@@ -71,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:fontFamily="@font/cambay"
             android:text="Delivery instructions"
             android:textColor="@android:color/black"
             android:textSize="16dp" />
@@ -85,6 +92,7 @@
             android:drawableEnd="@drawable/ic_baseline_add_24"
             android:drawablePadding="5dp"
             android:text="Add notes"
+            android:fontFamily="@font/cambay"
             android:textColor="@color/text_color"
             android:textSize="16dp" />
 
@@ -105,6 +113,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="Subtotal"
+            android:fontFamily="@font/cambay"
             android:textColor="@android:color/black"
             android:textSize="16dp" />
 
@@ -129,6 +138,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:text="Delivery cost"
+            android:fontFamily="@font/cambay"
             android:textColor="@android:color/black"
             android:textSize="16dp" />
 
@@ -140,6 +150,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:text="Free"
+           android:fontFamily="@font/cambay"
             android:textColor="@android:color/black"
             android:textSize="16dp"
             android:textStyle="bold" />
@@ -160,8 +171,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:text="Check out"
+        android:fontFamily="@font/cambay"
         android:textAllCaps="false"
         android:textColor="@android:color/white" />
 
 
 </LinearLayout>
+</ScrollView>

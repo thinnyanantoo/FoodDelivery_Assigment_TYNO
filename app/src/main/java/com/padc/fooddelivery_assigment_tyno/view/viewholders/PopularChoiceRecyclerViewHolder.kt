@@ -21,4 +21,13 @@ class PopularChoiceRecyclerViewHolder(itemView: View, delegate: DetailDelegate) 
             .load(data.image)
             .into(itemView.ivImageDetailItem)
     }
+
+    init {
+        itemView.ivCart.setOnClickListener {
+            mData?.let {
+                delegate.onTapAddCart(
+                    it)
+            }
+        }
+    }
 }

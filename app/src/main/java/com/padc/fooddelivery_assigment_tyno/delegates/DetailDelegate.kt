@@ -5,5 +5,5 @@ import com.padc.fooddelivery_assigment_tyno.mvp.presenters.BasePresentter
 import com.padc.fooddelivery_assigment_tyno.mvp.views.DetailView
 
 interface DetailDelegate : BasePresentter<DetailView>{
-    fun onTapAddFood(name : String, price : Int, counter : Int)
+    fun onTapAddCart(foods : FoodVO)
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvLogIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cambay"
+            android:text="Log in"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_regular"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_gravity="end" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/livetrack"
+            android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live Tracking"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/cambay"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real time tracking of your food \n  \t\t\t on the app after ordered"
+            android:fontFamily="@font/cambay"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_small"
+            />
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnCreateAccount"-->
+<!--            style="@style/Widget.MaterialComponents.Button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Create Account"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:gravity="center"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginStart="@dimen/margin_xlarge"-->
+<!--            android:layout_marginEnd="@dimen/margin_xlarge"-->
+<!--            android:layout_marginTop="@dimen/margin_xlarge"-->
+<!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.round"/>-->
+
+    </LinearLayout>
+
+</LinearLayout>

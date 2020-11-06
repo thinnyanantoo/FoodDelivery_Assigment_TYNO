@@ -6,4 +6,5 @@ import com.padc.fooddelivery_assigment_tyno.mvp.views.DetailView
 
 interface DetailPresenter : BasePresentter<DetailView>, DetailDelegate{
     fun onUiReady(id : String, owner: LifecycleOwner)
+    fun onTapgoToCart()
 }
